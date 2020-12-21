@@ -12,12 +12,6 @@
 const kidsWithCandies = (candies, extraCandies) => {
     let currentHigh = Math.max(...candies);
     let result = []
-    // for(let i = 0; i < candies.length; i++){
-    //     console.log(candies[i])
-    //     if( candies[i] >= currentHigh){
-    //         currentHigh = candies[i];
-    //     }
-    // }
     for(let i = 0; i < candies.length; i++){
         if( candies[i] + extraCandies >= currentHigh){
             result[i] = true
@@ -28,4 +22,29 @@ const kidsWithCandies = (candies, extraCandies) => {
     console.log(result)
 };
 
-kidsWithCandies([4,2,1,1,2], 1)
+// kidsWithCandies([4,2,1,1,2], 1)
+
+let findPermutations = (string) => {
+  
+    if (!string || typeof string !== "string"){
+     return "Please enter a string"
+   } else if (string.length < 2 ){
+     return string
+   }
+ 
+   let permutationsArray = [] 
+   
+   for (let i = 0; i < string.length; i++){
+    let char = string[i]
+    let remainingChars = string.slice(0, i) + string.slice(i + 1, string.length)
+    for (let permutation of findPermutations(remainingChars)){
+        permutationsArray.push(char + permutation) }
+     // Create a subproblems of string, each having size n/b
+     // Call procedure p recursively on each subproblem
+     // Combine the results from the subproblems
+   }
+   return permutationsArray
+ }
+ 
+//  findPermutations("abcd")
+
