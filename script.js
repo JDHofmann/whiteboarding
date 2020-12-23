@@ -19,7 +19,7 @@ const kidsWithCandies = (candies, extraCandies) => {
             result[i] = false
         }
     }
-    console.log(result)
+    // console.log(result)
 };
 
 // kidsWithCandies([4,2,1,1,2], 1)
@@ -48,3 +48,50 @@ let findPermutations = (string) => {
  
 //  findPermutations("abcd")
 
+
+
+
+//permArr: Global array which holds the list of permutations
+//usedChars: Global utility array which holds a list of "currently-in-use" characters
+var permArr = [], usedChars = [];
+function permute(input) {
+  // console.log(input)
+  //convert input into a char array (one element for each character)
+  let i, ch;
+  let chars = input.split("");
+  for (i = 0; i < chars.length; i++) {
+    //get and remove character at index "i" from char array
+    ch = chars.splice(i, 1);
+    //add removed character to the end of used characters
+    usedChars.push(ch);
+    // console.log(chars)
+    //when there are no more characters left in char array to add, add used chars to list of permutations
+    if (chars.length == 0) permArr[permArr.length] = usedChars.join("");
+    //send characters (minus the removed one from above) from char array to be permuted
+    // permute(chars.join(""));
+    console.log(permArr, chars, ch)
+    //add removed character back into char array in original position
+    chars.splice(i, 0, ch);
+    //remove the last character used off the end of used characters array
+    usedChars.pop();
+  }
+}
+// console.log(permute("abc"))
+
+const permutations = arr => {
+  console.log([arr])
+  if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
+
+  return arr.reduce(
+    (acc, item, i) =>
+    // console.log(arr.slice(i))
+      acc.concat(
+        permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [
+          item,
+          ...val,
+        ])
+      ),
+    []
+  );
+};
+console.log(permutations(["q",5,3]));
