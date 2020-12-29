@@ -113,13 +113,14 @@ function permute(input) {
 
 function CodelandUsernameValidation(str) { 
   if(3 < str.length && str.length < 25 && (/[a-zA-Z]/).test(str[0]) && str[str.length-1] !== "_" ){
-    let chars = /[a-zA-Z]/;
-    if( str.match(chars)){
-      return str; 
+    let chars = /[a-zA-Z0-9_]/;
+    for(let i=0; i < str.length; i++){
+      if(!str[i].match(chars)) return false
     }
+    return str
   } else return false
 
 }
    
 // keep this function call here 
-console.log(CodelandUsernameValidation("app*&^yhapp___{}{pyhapp6"));
+console.log(CodelandUsernameValidation("a_808p"));
