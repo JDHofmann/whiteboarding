@@ -112,15 +112,22 @@ function permute(input) {
 // Output: true
 
 function CodelandUsernameValidation(str) { 
-  if(3 < str.length && str.length < 25 && (/[a-zA-Z]/).test(str[0]) && str[str.length-1] !== "_" ){
-    let chars = /[a-zA-Z0-9_]/;
-    for(let i=0; i < str.length; i++){
-      if(!str[i].match(chars)) return false
-    }
-    return str
-  } else return false
+  // my solution
+  // if(3 < str.length && str.length < 25 && (/[a-zA-Z]/).test(str[0]) && str[str.length-1] !== "_" ){
+  //   let chars = /[a-zA-Z0-9\_]/;
+  //   for(let i=0; i < str.length; i++){
+  //     if(!str[i].match(chars)) return false
+  //   }
+  //   return str
+  // } else return false
+
+// better solution
+
+  const valid_reg = /^[A-Za-z]\w+[A-Za-z0-9]$/;
+  const valid_length = (str) => str.length >= 4 && str.length <= 25;
+  return valid_reg.test(str) && valid_length(str);
 
 }
    
 // keep this function call here 
-console.log(CodelandUsernameValidation("a_808p"));
+console.log(CodelandUsernameValidation("u__hello_world123"));
