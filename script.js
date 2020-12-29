@@ -101,7 +101,7 @@ function permute(input) {
 // √ 1. The username is between 4 and 25 characters.
 // √ 2. It must start with a letter.
 // 3. It can only contain letters, numbers, and the underscore character.
-// 4. It cannot end with an underscore character.
+// √ 4. It cannot end with an underscore character.
 
 // If the username is valid then your program should return the string true, otherwise return the string false.
 
@@ -112,13 +112,14 @@ function permute(input) {
 // Output: true
 
 function CodelandUsernameValidation(str) { 
-  if(3 < str.length && str.length < 25 && (/[a-zA-Z]/).test(str[0])  ){
-
-    return str; 
+  if(3 < str.length && str.length < 25 && (/[a-zA-Z]/).test(str[0]) && str[str.length-1] !== "_" ){
+    let chars = /[a-zA-Z]/;
+    if( str.match(chars)){
+      return str; 
+    }
   } else return false
-  // code goes here  
 
 }
    
 // keep this function call here 
-console.log(CodelandUsernameValidation("_appyhappyhappyhappyhapp"));
+console.log(CodelandUsernameValidation("app*&^yhapp___{}{pyhapp6"));
