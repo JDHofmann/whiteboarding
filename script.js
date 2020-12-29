@@ -78,20 +78,47 @@ function permute(input) {
 }
 // console.log(permute("abc"))
 
-const permutations = arr => {
-  console.log([arr])
-  if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
+// const permutations = arr => {
+//   console.log([arr])
+//   if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
 
-  return arr.reduce(
-    (acc, item, i) =>
-    // console.log(arr.slice(i))
-      acc.concat(
-        permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [
-          item,
-          ...val,
-        ])
-      ),
-    []
-  );
-};
-console.log(permutations(["q",5,3]));
+//   return arr.reduce(
+//     (acc, item, i) =>
+//     // console.log(arr.slice(i))
+//       acc.concat(
+//         permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [
+//           item,
+//           ...val,
+//         ])
+//       ),
+//     []
+//   );
+// };
+// console.log(permutations(["q",5,3]));
+
+// Have the function CodelandUsernameValidation(str) take the str parameter being passed and determine if the string is a valid username according to the following rules:
+
+// √ 1. The username is between 4 and 25 characters.
+// √ 2. It must start with a letter.
+// 3. It can only contain letters, numbers, and the underscore character.
+// 4. It cannot end with an underscore character.
+
+// If the username is valid then your program should return the string true, otherwise return the string false.
+
+// Examples
+// Input: "aa_"
+// Output: false
+// Input: "u__hello_world123"
+// Output: true
+
+function CodelandUsernameValidation(str) { 
+  if(3 < str.length && str.length < 25 && (/[a-zA-Z]/).test(str[0])  ){
+
+    return str; 
+  } else return false
+  // code goes here  
+
+}
+   
+// keep this function call here 
+console.log(CodelandUsernameValidation("_appyhappyhappyhappyhapp"));
