@@ -141,14 +141,24 @@ let input = ["1, 3, 4, 7, 13", "1, 2, 4, 7, 8, 13, 15"]
 // Output: 1,9,10
 
 function FindIntersection(strArr) { 
-  let one = strArr[0].split(', ')
-  let two = strArr[1].split(', ')
-  let intersection = [];
-  for(let i = 0; i<one.length; i++){
-    if(two.includes(one[i])){
-      intersection.push(one[i])
-    }
-  }
-  return intersection.length > 0 ? intersection.join(',') : false; 
+
+// my solution
+
+  // let one = strArr[0].split(', ')
+  // let two = strArr[1].split(', ')
+  // let intersection = [];
+  // for(let i = 0; i<one.length; i++){
+  //   if(two.includes(one[i])){
+  //     intersection.push(one[i])
+  //   }
+  // }
+  // return intersection.length > 0 ? intersection.join(',') : false; 
+
+  // solution I found
+
+  const list1 = strArr[0].split(", ");
+  const list2 = strArr[1].split(", ");
+  const test = list1.filter(val => list2.indexOf(val) !== -1);
+  return test.length ? test.join(",") : false; 
 }
 console.log(FindIntersection(input));
