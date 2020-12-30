@@ -149,6 +149,6 @@ function FindIntersection(strArr) {
       intersection.push(one[i])
     }
   }
-  return intersection; 
+  return intersection.length > 0 ? intersection.join(',') : false; 
 }
 console.log(FindIntersection(input));
