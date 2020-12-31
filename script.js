@@ -213,11 +213,8 @@ let two = 8
 // Output: 40320
 
 function FirstFactorial(num) { 
-
-  // code goes here  
-  return result; 
+  return (num === 1 ? 1 : num * FirstFactorial(num - 1));
 
 }
    
-// keep this function call here 
-console.log(FirstFactorial(one));
+console.log(FirstFactorial(8));
