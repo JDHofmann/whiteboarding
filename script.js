@@ -161,4 +161,21 @@ function FindIntersection(strArr) {
   const test = list1.filter(val => list2.indexOf(val) !== -1);
   return test.length ? test.join(",") : false; 
 }
-console.log(FindIntersection(input));
+// console.log(FindIntersection(input));
+
+// Have the function FirstReverse(str) take the str parameter being passed and return the string in reversed order. For example: if the input string is "Hello World and Coders" then your program should return the string sredoC dna dlroW olleH.
+// Example
+let one = "coderbyte"
+// Output: etybredoc
+let two = "I Love Code"
+// Output: edoC evoL I
+
+function FirstReverse(str) { 
+
+  // code goes here  
+  return str; 
+
+}
+   
+// keep this function call here 
+console.log(FirstReverse(one));
