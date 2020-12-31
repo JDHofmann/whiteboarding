@@ -172,10 +172,12 @@ let two = "I Love Code"
 
 function FirstReverse(str) { 
 
-  // code goes here  
-  return str; 
+  let array = str.split("");
+  let result = array.reverse().join("")
+
+  return result; 
 
 }
    
 // keep this function call here 
-console.log(FirstReverse(one));
+console.log(FirstReverse(two));
