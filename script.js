@@ -78,23 +78,26 @@ function permute(input) {
 }
 // console.log(permute("abc"))
 
-// const permutations = arr => {
-//   console.log([arr])
-//   if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
+const permutations = arr => {
+  console.log([arr])
+  if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
 
-//   return arr.reduce(
-//     (acc, item, i) =>
-//     // console.log(arr.slice(i))
-//       acc.concat(
-//         permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [
-//           item,
-//           ...val,
-//         ])
-//       ),
-//     []
-//   );
-// };
+  return arr.reduce(
+    (acc, item, i) =>
+    // console.log(arr.slice(i))
+      acc.concat(
+        permutations([...arr.slice(0, i), ...arr.slice(i + 1)]).map(val => [
+          item,
+          ...val,
+        ])
+      ),
+    []
+  );
+};
 // console.log(permutations(["q",5,3]));
+
+
+// Username Validation
 
 // Have the function CodelandUsernameValidation(str) take the str parameter being passed and determine if the string is a valid username according to the following rules:
 
@@ -128,8 +131,10 @@ function CodelandUsernameValidation(str) {
   return valid_reg.test(str) && valid_length(str);
 
 }
-   
+
 // console.log(CodelandUsernameValidation("u__hello_world123"));
+
+
 
 // Find Intersection
 
@@ -163,7 +168,11 @@ function FindIntersection(strArr) {
 }
 // console.log(FindIntersection(input));
 
+
+// Reverse String
+
 // Have the function FirstReverse(str) take the str parameter being passed and return the string in reversed order. For example: if the input string is "Hello World and Coders" then your program should return the string sredoC dna dlroW olleH.
+
 // Example
 let one = "coderbyte"
 // Output: etybredoc
@@ -172,12 +181,17 @@ let two = "I Love Code"
 
 function FirstReverse(str) { 
 
-  let array = str.split("");
-  let result = array.reverse().join("")
+  // solution 1
+  // let result = str.split("").reverse().join("")
+  // return result; 
 
-  return result; 
+  // decrementing loop solution
 
+  let resultArray = [];
+  for(let i = str.length -1; i >= 0; i--){
+    resultArray.push(str[i])
+  }
+  return resultArray.join("")
 }
-   
-// keep this function call here 
+
 console.log(FirstReverse(two));
