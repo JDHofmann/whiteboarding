@@ -185,13 +185,18 @@ function FirstReverse(str) {
   // let result = str.split("").reverse().join("")
   // return result; 
 
+
   // decrementing loop solution
 
-  let resultArray = [];
-  for(let i = str.length -1; i >= 0; i--){
-    resultArray.push(str[i])
-  }
-  return resultArray.join("")
+  // let result = "";
+  // for(let i = str.length -1; i >= 0; i--){
+  //   result += str[i]
+  // }
+  // return result
+
+
+  
+
 }
 
 console.log(FirstReverse(two));
